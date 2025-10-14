@@ -23,4 +23,5 @@ openssl req -new -x509 -nodes -newkey ec:<(openssl ecparam -name secp384r1) -key
 
 Добавляем в cron для очистки старых сессий noVNC ( сессии тарше 1го часа):
 Очистка старых noVNC сессий каждые 30 минут
-*/30 * * * * /usr/bin/php /usr/share/zabbix/ui/js/novnc_cleanup.php
+
+*/30 * * * * /usr/bin/php /usr/share/zabbix/ui/novnc_cleanup.php
