@@ -109,11 +109,17 @@ function getMenuPopupHost(options, trigger_element) {
 	const configuration = [];
 	let url;
 	var hostId = options['hostid'];
-	let noVNC = [{confirmation:"", label: "Подключиться по VNC",menu_path:"",target:"_blank", url: "http://192.168.6.72/zabbix/novnc.php?hostId="+hostId }];
-	Object.assign(options, {urls:noVNC});
+	if (options.hasOwnProperty("urls"))
+	{
+	  let noVNC = {confirmation:"", label: "Подключиться по VNC",menu_path:"",target:"_blank", url: "http://192.168.6.72/zabbix/novnc.php?hostId="+hostId };
+	  options["urls"].push(noVNC);
+	}
+	else
+	{
+	  let noVNC = [{confirmation:"", label: "Подключиться по VNC",menu_path:"",target:"_blank", url: "http://192.168.6.72/zabbix/novnc.php?hostId="+hostId }];
+	  Object.assign(options, {urls:noVNC});
+	}
 	
-	//options['urls'][0]['label'] = 'VNC';
-	//options['urls'][0]['url'] = 'http://192.168.6.72/zabbix/novnc.php?ip';
 	// go to section
 	if (options.hasGoTo) {
 		// dashboard
