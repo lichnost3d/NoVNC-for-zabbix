@@ -10,7 +10,7 @@ A wrapper for embedding noVNC in zabbix (Обёртка для встраива�
 
 Ставим на сервер с zabbix  - NoVNC
 apt -y install novnc python3-websockify
-
+ 
 генерим сертификат
 openssl req -new -x509 -nodes -newkey ec:<(openssl ecparam -name secp384r1) -keyout novnc.pem -out novnc.pem -days 3650 
 
